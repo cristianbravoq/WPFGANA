@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.Recargas.SelectOperador"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFGANA.UserControls.Recargas" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+      Height="1920" 
+       Width="1080"
+      >
+    <UserControl.Resources>
+        <Style x:Key="DesignView"
+               TargetType="ListViewItem"
+               >
+            <EventSetter Event="TouchDown"
+             Handler="Btn_SelectOperator"
+                                         />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="StyleBorder">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="StyleBorder" 
+                                        Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Image Source="/Images/BetPlay/Others/LogoGana.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="120" Width="332" Margin="383,98,0,0"/>
+
+        <Image Source="/Images/SuperChance/Background/BgGris.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="822" Height="1168"/>
+
+        <Image Source="/Images/Recargas/txtRYP.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="606" Height="118" Margin="0,540,0,0"/>
+
+        <Image Source="/Images/Recargas/TxtElige.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="387" Height="46" Margin="0,688,0,0"/>
+
+        <materialDesign:TransitioningContent  
+                OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplier 0:0:1.2}" 
+                Name="btnMapSeats" Margin="213,770,211,445" RenderTransformOrigin="0.507,0.5">
+            <materialDesign:TransitioningContent.OpeningEffects>
+                <materialDesign:TransitionEffect Kind="SlideInFromBottom"  Duration="0:0:1.9"/>
+            </materialDesign:TransitioningContent.OpeningEffects>
+
+            <ListView 
+                    x:Name="lvOperator"
+                    ItemContainerStyle="{DynamicResource DesignView}"
+                    
+                    ItemsSource="{Binding}"            
+                    SelectionMode="Single" Width="656" Background="{x:Null}" Margin="10,0,-10,10">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"
+                                  VerticalAlignment="Top"
+                                 HorizontalAlignment="Center"/>
+
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
+                                       
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,10,10,0"
+                                 x:Name="OperatorSelected"
+                                Width="150"
+                                Height="125">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="125" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0"                      
+                                        x:Name="OperatorsSelected"
+                                      >
+
+                                <Grid.Background>
+
+                                    <ImageBrush 
+                                            ImageSource="{Binding ImageData}"                                            
+                                            Stretch="Fill"                                      
+                                            />
+                                </Grid.Background>
+
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </materialDesign:TransitioningContent>
+
+        <Image Source="/Images/Recargas/BtnContinuar.png"
+                   HorizontalAlignment="Left"
+               Visibility="Hidden"
+                   VerticalAlignment="Top" Width="238" Height="76" Margin="589,1504,0,0"/>
+
+        <Image Source="/Images/Recargas/BtnCancelar.png"
+                   HorizontalAlignment="Center"
+               TouchDown="BtnCancelar_TouchDown"
+                   VerticalAlignment="Top" Width="199" Height="62" Margin="0,1517,0,0"/>
+
+        <Image Source="/Images/Recargas/Logos2.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="417" Height="153" Margin="0,299,0,0"/>
+
+        <Image Source="/Images/Recargas/TxtAdvertencia.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="713" Height="124" Margin="185,1656,0,0"/>
+
+        <Image Source="/Images/BetPlay/Others/LogoEcity.png" 
+                   Margin="917,1867,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="128" Height="43"/>
+    </Grid>
+</UserControl>

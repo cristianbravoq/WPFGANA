@@ -1,0 +1,366 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.SuperChance.DateTxUC"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WPFGANA.UserControls"
+       mc:Ignorable="d" 
+       Height="1920" 
+       Width="1080">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+
+        <Grid
+                Grid.Row="0">
+
+            <Image Source="/Images/BetPlay/Others/LogoGana.png" 
+                   Margin="304,62,300,326"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <Image Source="/Images/SuperChance/Other/TxtDiviertete.png" 
+                   Margin="0,280,0,0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Height="117" Width="898"/>
+
+        </Grid>
+
+        <Grid
+            Grid.Row="1">
+
+
+            <Image Source="/Images/SuperChance/Background/BgGris.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="882" Height="1167" Margin="0,34,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/ico2.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="72" Height="72" Margin="182,160,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/txtApuesta1.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="202" Height="32" Margin="166,110,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/txtEscogeF.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="281" Height="32" Margin="259,180,0,0"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoChance.png" 
+                   Margin="412,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="94" Width="242"/>
+
+
+            <Image Source="/Images/SuperChance/Other/ico3.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="72" Height="72" Margin="178,862,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/txtEligeL.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="486" Height="49" Margin="264,880,0,0"/>
+
+            <Image Source="/Images/SuperChance/Button/BtnAgregar.png"
+                   HorizontalAlignment="Left"
+                   TouchDown="Btn_ContinuarTouchDown"
+                   VerticalAlignment="Top" Width="181" Height="50" Margin="454,988,0,0"/>
+
+            <Image Source="/Images/BetPlay/Buttons/btnCancelar.png" 
+                   Margin="0,1147,0,0"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_CancelarTouchDown"
+                   x:Name="BtnCancelar"
+                   VerticalAlignment="Top" Height="78" Width="172"/>
+
+            <Image Source="/Images/SuperChance/Background/BgDia.png"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_SelectDay"
+                   x:Name="Dia1"
+                   Tag="1"
+                   VerticalAlignment="Top" Width="228" Height="247" Margin="165,270,687,0"/>
+
+            <Image Source="/Images/SuperChance/Other/FechaS.png"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_SelectDay"
+                   x:Name="Dia1S"
+                   Visibility="Hidden"
+                   Tag="1"
+                   VerticalAlignment="Top" Width="228" Height="247" Margin="165,270,687,0"/>
+
+            <Image Source="/Images/SuperChance/Background/BgDia.png"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_SelectDay"
+                   x:Name="Dia2"
+                   Tag="2"
+                   VerticalAlignment="Top" Width="228" Height="247" Margin="426,270,426,0"/>
+
+            <Image Source="/Images/SuperChance/Other/FechaS.png"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_SelectDay"
+                   x:Name="Dia2S"
+                      Visibility="Hidden" 
+                   Tag="2"
+                   VerticalAlignment="Top" Width="228" Height="247" Margin="426,270,426,0"/>
+
+            <Image Source="/Images/SuperChance/Background/BgDia.png"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_SelectDay"
+                   x:Name="Dia3"
+                   Tag="3"
+                   VerticalAlignment="Top" Width="228" Height="247" Margin="687,270,165,0"/>
+
+            <Image  Source="/Images/SuperChance/Other/FechaS.png"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_SelectDay"
+                       Visibility="Hidden" 
+                   x:Name="Dia3S"
+                   Tag="3"
+                   VerticalAlignment="Top" Width="228" Height="247" Margin="687,270,165,0"/>
+
+            <Image Source="/Images/SuperChance/Other/txtDia.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="75" Height="38" Margin="241,292,0,0"/>
+
+
+
+            <Image Source="/Images/SuperChance/Other/txtDia.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="76" Height="38" Margin="764,292,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/txtDia.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="75" Height="38" Margin="500,292,0,0"/>
+
+            <Label Content="" 
+                   HorizontalAlignment="Left"
+                   Margin="201,348,0,0"
+                   VerticalAlignment="Top"
+                   HorizontalContentAlignment="Center"
+                   Height="84" 
+                   TouchDown="Btn_SelectDayH"
+                    Tag="11"
+                   x:Name="Day1"
+                   Width="155"
+                   Foreground="White"
+                   FontSize="60"
+                   FontFamily="Yu Gothic UI Semibold"/>
+
+            <Label Content="" 
+                   HorizontalAlignment="Left"
+                   Margin="467,348,0,0"
+                   VerticalAlignment="Top"
+                   Height="84" 
+                   TouchDown="Btn_SelectDayH"
+                    Tag="12"
+                   x:Name="Day2"
+                 HorizontalContentAlignment="Center" 
+                   Width="155"
+                   Foreground="White"
+                   FontSize="60"
+                   FontFamily="Yu Gothic UI Semibold"/>
+
+            <Label Content="" 
+                   HorizontalAlignment="Left"
+                   Margin="730,348,0,0"
+                   VerticalAlignment="Top"
+                   Height="84" 
+                   x:Name="Day3"
+                   TouchDown="Btn_SelectDayH"
+                    Tag="13"
+                   HorizontalContentAlignment="Center"
+                   Width="156"
+                   Foreground="White"
+                   FontSize="60"
+                   FontFamily="Yu Gothic UI Semibold"/>
+
+            <Label Content="" 
+                   HorizontalAlignment="Left"
+                   Margin="754,437,0,0"
+                   VerticalAlignment="Top"
+                   HorizontalContentAlignment="Center"
+                   Height="61" 
+                   x:Name="Mes3"
+                   Width="110"
+                   Foreground="White"
+                   FontSize="35"
+                   FontFamily="Yu Gothic UI Semibold"/>
+
+            <Label Content="" 
+                   HorizontalAlignment="Left"
+                   Margin="489,437,0,0"
+                   VerticalAlignment="Top"
+                   Height="61" 
+                   x:Name="Mes2"
+                   Width="110"
+                   Foreground="White"
+                   HorizontalContentAlignment="Center"
+                   FontSize="35"
+                   FontFamily="Yu Gothic UI Semibold"/>
+
+            <Label Content="" 
+                   HorizontalAlignment="Left"
+                   Margin="226,437,0,0"
+                   VerticalAlignment="Top"
+                   Height="61" 
+                   HorizontalContentAlignment="Center"
+                   x:Name="Mes"
+                   Width="110"
+                   Foreground="White"
+                   FontSize="35"
+                   FontFamily="Yu Gothic UI Semibold"/>
+            <Image Source="/WPFGANA;component/Images/SuperChance/Background/BgDia.png"
+                HorizontalAlignment="Center"
+                TouchDown="Btn_SelectDay"
+                x:Name="Dia4"
+                Tag="4"
+                VerticalAlignment="Top" Width="228" Height="247" Margin="165,564,687,0"/>
+            <Image Source="/WPFGANA;component/Images/SuperChance/Background/BgDia.png"
+                HorizontalAlignment="Center"
+                TouchDown="Btn_SelectDay"
+                x:Name="Dia5"
+                Tag="5"
+                VerticalAlignment="Top" Width="228" Height="247" Margin="426,564,426,0"/>
+            <Image Source="/WPFGANA;component/Images/SuperChance/Background/BgDia.png"
+                HorizontalAlignment="Center"
+                TouchDown="Btn_SelectDay"
+                x:Name="Dia6"
+                Tag="6"
+                VerticalAlignment="Top" Width="228" Height="247" Margin="687,564,165,0"/>
+
+            <Image   Source="/Images/SuperChance/Other/FechaS.png"
+                HorizontalAlignment="Center"
+                TouchDown="Btn_SelectDay"
+                Visibility="Hidden"
+                x:Name="Dia4S"
+                Tag="4"
+                VerticalAlignment="Top" Width="228" Height="247" Margin="165,564,687,0"/>
+            <Image   Source="/Images/SuperChance/Other/FechaS.png"
+                HorizontalAlignment="Center"
+                TouchDown="Btn_SelectDay"
+                Visibility="Hidden"
+                x:Name="Dia5S"
+                Tag="5"
+                VerticalAlignment="Top" Width="228" Height="247" Margin="426,564,426,0"/>
+            <Image  Source="/Images/SuperChance/Other/FechaS.png"
+                HorizontalAlignment="Center"
+                TouchDown="Btn_SelectDay"
+                Visibility="Hidden"
+                x:Name="Dia6S"
+                Tag="6"
+                VerticalAlignment="Top" Width="228" Height="247" Margin="687,564,165,0"/>
+
+            <Image Source="/WPFGANA;component/Images/SuperChance/Other/TxtDia.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" Width="75" Height="38" Margin="241,586,0,0"/>
+            <Image Source="/WPFGANA;component/Images/SuperChance/Other/TxtDia.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" Width="76" Height="38" Margin="764,586,0,0"/>
+            <Image Source="/WPFGANA;component/Images/SuperChance/Other/TxtDia.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" Width="75" Height="38" Margin="500,586,0,0"/>
+            <Label Content="" 
+                HorizontalAlignment="Left"
+                Margin="201,642,0,0"
+                VerticalAlignment="Top"
+                      TouchDown="Btn_SelectDayH"
+                    Tag="14"
+                HorizontalContentAlignment="Center"
+                Height="84" 
+                x:Name="Day4"
+                Width="155"
+                Foreground="White"
+                FontSize="60"
+                FontFamily="Yu Gothic UI Semibold"/>
+            <Label Content="" 
+                HorizontalAlignment="Left"
+                Margin="467,642,0,0"
+                VerticalAlignment="Top"
+                Height="84" 
+                x:Name="Day5"
+                   TouchDown="Btn_SelectDayH"
+                    Tag="15"
+                HorizontalContentAlignment="Center" 
+                Width="155"
+                Foreground="White"
+                FontSize="60"
+                FontFamily="Yu Gothic UI Semibold"/>
+            <Label Content="" 
+                HorizontalAlignment="Left"
+                Margin="730,642,0,0"
+                VerticalAlignment="Top"
+                Height="84" 
+                   TouchDown="Btn_SelectDayH"
+                    Tag="16"
+                x:Name="Day6"
+                HorizontalContentAlignment="Center"
+                Width="156"
+                Foreground="White"
+                FontSize="60"
+                FontFamily="Yu Gothic UI Semibold"/>
+            <Label Content="" 
+                HorizontalAlignment="Left"
+                Margin="754,731,0,0"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Height="61" 
+                Language="es-CO"
+                x:Name="Mes6"
+                Width="110"
+                Foreground="White"
+                FontSize="35"
+                FontFamily="Yu Gothic UI Semibold"/>
+            <Label Content="" 
+                HorizontalAlignment="Left"
+                Margin="489,731,0,0"
+                VerticalAlignment="Top"
+                Height="61" 
+                x:Name="Mes5"
+                Width="110"
+                Foreground="White"
+                HorizontalContentAlignment="Center"
+                FontSize="35"
+                FontFamily="Yu Gothic UI Semibold"/>
+            <Label Content="" 
+                HorizontalAlignment="Left"
+                Margin="226,731,0,0"
+                VerticalAlignment="Top"
+                Height="61" 
+                HorizontalContentAlignment="Center"
+                x:Name="Mes4"
+                Width="110"
+                Foreground="White"
+                FontSize="35"
+                FontFamily="Yu Gothic UI Semibold"/>
+
+
+
+
+
+
+
+
+        </Grid>
+
+        <Grid
+                Grid.Row="2">
+
+            <Image Source="/Images/BetPlay/Others/LogoEcity.png" 
+                   Margin="932,337,20,20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="128" Height="43"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

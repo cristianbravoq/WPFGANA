@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.SuperChance.Politicas"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:cefsharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+       mc:Ignorable="d" 
+       Height="1920" 
+       Width="1080">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+
+
+        <Grid
+                Grid.Row="0">
+
+
+
+            <Image Source="/Images/BetPlay/Others/LogoGana.png" 
+                   Margin="304,62,300,326"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <Image Source="/Images/SuperChance/Other/TxtDiviertete.png" 
+                   Margin="0,280,0,0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Height="117" Width="898"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoChance.png" 
+                   Margin="446,635,0,-229"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="94" Width="242"/>
+
+        </Grid>
+
+        <Grid
+            Grid.Row="1" Margin="222,253,144,95">
+
+            <cefsharp:ChromiumWebBrowser
+                Address="file:///C:/TYC.pdf"
+                />
+
+        </Grid>
+
+        <Grid
+            Grid.Row="2"
+            >
+
+            <Image Source="/Images/Superchance/Button/btnAceptar.png" 
+                   Margin="496,-94,0,0"
+                   HorizontalAlignment="Left"
+                   TouchDown="Btn_CancelarTouchDown"
+                   x:Name="BtnCancelar"
+                   VerticalAlignment="Top" Height="78" Width="172"/>
+
+        </Grid>
+
+
+
+
+    </Grid>
+</UserControl>

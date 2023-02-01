@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.103.0.9\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.103.0.9\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.103.0.9\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.103.0.9\build\cef.redist.x64.props')" />
+  <Import Project="..\packages\Microsoft.UI.Xaml.2.7.1\build\Microsoft.UI.Xaml.props" Condition="Exists('..\packages\Microsoft.UI.Xaml.2.7.1\build\Microsoft.UI.Xaml.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11B9DE73-420F-4182-BBA9-7080C2FDB673}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WPFGANA</RootNamespace>
+    <AssemblyName>WPFGANA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.3.8.0\lib\net462\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net462\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net462\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Statistics.3.8.0\lib\net462\Accord.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="BarcodeLib.Barcode.ASP.NET, Version=5.0.0.30712, Culture=neutral, PublicKeyToken=f1ec954ce2c30e4e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\BarcodeLib.Barcode.ASP.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp, Version=103.0.90.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.103.0.90\lib\net452\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=103.0.90.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.103.0.90\lib\net452\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Wpf, Version=103.0.90.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Wpf.103.0.90\lib\net462\CefSharp.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\WPFCFA-AdicionAsisaAPI\WPFCFA-AdicionAsisaAPI\WPFCFA\WPFCFA\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\WPFCFA-AdicionAsisaAPI\WPFCFA-AdicionAsisaAPI\WPFCFA\WPFCFA\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.6.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.6\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.5.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.5.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MPOST, Version=3.0.5.0, Culture=neutral, PublicKeyToken=c3d0ba8d3881c2f7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MPOST.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WPFCFA-AdicionAsisaAPI\WPFCFA-AdicionAsisaAPI\WPFCFA\WPFCFA\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=107.3.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.107.3.0\lib\netstandard2.0\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.3\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="WPKeyboard">
+      <HintPath>..\..\WPFCFA-AdicionAsisaAPI\WPFCFA-AdicionAsisaAPI\WPFCFA\WPFCFA\bin\Debug\WPKeyboard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Classes\Peripherals\MEIAcceptorControl.cs" />
+    <Compile Include="Classes\Printer\CLSPrint.cs" />
+    <Compile Include="Resources\CommonResource.Designer.cs" />
+    <Compile Include="Resources\ConstantsResource.Designer.cs" />
+    <Compile Include="Resources\MessageResource.Designer.cs" />
+    <Compile Include="Services\Api.cs" />
+    <Compile Include="Services\ApiIntegration.cs" />
+    <Compile Include="Services\ObjectIntegration\RequestIntegration.cs" />
+    <Compile Include="Services\ObjectIntegration\ResponseIntegration.cs" />
+    <Compile Include="Services\Object\DataPayPlus.cs" />
+    <Compile Include="Services\Object\Log.cs" />
+    <Compile Include="Services\Object\Request.cs" />
+    <Compile Include="Services\Object\RequestApi.cs" />
+    <Compile Include="Services\Object\Response.cs" />
+    <Compile Include="Services\Object\ResponseApi.cs" />
+    <Compile Include="UserControls\Administrator\ConfigurateUC.xaml.cs">
+      <DependentUpon>ConfigurateUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BetPlay\FinishBetPlayUC.xaml.cs">
+      <DependentUpon>FinishBetPlayUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BetPlay\LoginUC.xaml.cs">
+      <DependentUpon>LoginUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BetPlay\PaymentUC.xaml.cs">
+      <DependentUpon>PaymentUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BetPlay\RechargeUC.xaml.cs">
+      <DependentUpon>RechargeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BetPlay\ReturnMoneyUC.xaml.cs">
+      <DependentUpon>ReturnMoneyUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BetPlay\ValidateUC.xaml.cs">
+      <DependentUpon>ValidateUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\Paquetes\NumeroPaquetesUC.xaml.cs">
+      <DependentUpon>NumeroPaquetesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\Paquetes\PaquetesUC.xaml.cs">
+      <DependentUpon>PaquetesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\Paquetes\ValidatePackUC.xaml.cs">
+      <DependentUpon>ValidatePackUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\PaymentUC.xaml.cs">
+      <DependentUpon>PaymentUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\Recargas\NumeroRecargaUC.xaml.cs">
+      <DependentUpon>NumeroRecargaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\Recargas\RecargasUC.xaml.cs">
+      <DependentUpon>RecargasUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\Recargas\ValidateInfoUC.xaml.cs">
+      <DependentUpon>ValidateInfoUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\SelectOperador.xaml.cs">
+      <DependentUpon>SelectOperador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\SelectOptionUC.xaml.cs">
+      <DependentUpon>SelectOptionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recargas\SuccesTransactionUC.xaml.cs">
+      <DependentUpon>SuccesTransactionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\CancelLotteryUC.xaml.cs">
+      <DependentUpon>CancelLotteryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\ConfirmLotteryUC.xaml.cs">
+      <DependentUpon>ConfirmLotteryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\DateTxUC.xaml.cs">
+      <DependentUpon>DateTxUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\ExtraSelectNum.xaml.cs">
+      <DependentUpon>ExtraSelectNum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\FinishChance.xaml.cs">
+      <DependentUpon>FinishChance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\FormUC.xaml.cs">
+      <DependentUpon>FormUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\InfoUC.xaml.cs">
+      <DependentUpon>InfoUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\LotteryUC.xaml.cs">
+      <DependentUpon>LotteryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\PaymentUC.xaml.cs">
+      <DependentUpon>PaymentUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\Politicas.xaml.cs">
+      <DependentUpon>Politicas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\PrintUC.xaml.cs">
+      <DependentUpon>PrintUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\SelectNumUC.xaml.cs">
+      <DependentUpon>SelectNumUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuperChance\TransactionUC.xaml.cs">
+      <DependentUpon>TransactionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\DetailViewModel.cs" />
+    <Compile Include="ViewModel\LotteriesViewModel.cs" />
+    <Compile Include="ViewModel\OperatorsViewModel.cs" />
+    <Compile Include="ViewModel\PackageOperator.cs" />
+    <Compile Include="ViewModel\PaymentViewModel.cs" />
+    <Compile Include="Windows\Alerts\InfoAlert.xaml.cs">
+      <DependentUpon>InfoAlert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Alerts\ModalW.xaml.cs">
+      <DependentUpon>ModalW.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AdminPayPlus.cs" />
+    <Compile Include="Classes\DB\SqliteDataAccess.cs" />
+    <Compile Include="Classes\Peripherals\ControlPeripherals.cs" />
+    <Compile Include="Classes\Printer\DataPrinter.cs" />
+    <Compile Include="Classes\Printer\PrintProperties.cs" />
+    <Compile Include="Classes\Printer\PrintService.cs" />
+    <Compile Include="Classes\UseFull\Encryptor.cs" />
+    <Compile Include="Classes\UseFull\Enumerables.cs" />
+    <Compile Include="Classes\UseFull\Error.cs" />
+    <Compile Include="Classes\UseFull\ImageSleader.cs" />
+    <Compile Include="Classes\UseFull\ReaderBarCode.cs" />
+    <Compile Include="Classes\UseFull\TimerGeneric.cs" />
+    <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="DataModel\CONFIGURATION_PAYDADs.cs" />
+    <Compile Include="DataModel\DEVICE_LOGs.cs" />
+    <Compile Include="DataModel\ERROR_LOGs.cs" />
+    <Compile Include="DataModel\PAYERs.cs" />
+    <Compile Include="DataModel\PAYPAD_ACTION_LOGs.cs" />
+    <Compile Include="DataModel\PAYPAD_CONSOLE_ERRORs.cs" />
+    <Compile Include="DataModel\PAYPAD_LOGs.cs" />
+    <Compile Include="DataModel\TRANSACTIONs.cs" />
+    <Compile Include="DataModel\TRANSACTION_DESCRIPTIONs.cs" />
+    <Compile Include="DataModel\TRANSACTION_DETAILs.cs" />
+    <Compile Include="DataModel\TRANSACTION_ERROR_SERVICE.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserControls\Administrator\ConfigurateUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BetPlay\FinishBetPlayUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BetPlay\LoginUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BetPlay\PaymentUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BetPlay\RechargeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BetPlay\ReturnMoneyUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BetPlay\ValidateUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\Paquetes\NumeroPaquetesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\Paquetes\PaquetesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\Paquetes\ValidatePackUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\PaymentUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\Recargas\NumeroRecargaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\Recargas\RecargasUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\Recargas\ValidateInfoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\SelectOperador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\SelectOptionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Recargas\SuccesTransactionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\CancelLotteryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\ConfirmLotteryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\DateTxUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\ExtraSelectNum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\FinishChance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\FormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\InfoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\LotteryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\PaymentUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\Politicas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\PrintUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\SelectNumUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SuperChance\TransactionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Alerts\InfoAlert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Alerts\ModalW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\CheckTypeSerch.cs" />
+    <Compile Include="Models\ConsecutiveApi.cs" />
+    <Compile Include="Models\DenominationMoney.cs" />
+    <Compile Include="Models\DetailsUser.cs" />
+    <Compile Include="Models\MockupsModel.cs" />
+    <Compile Include="Models\ModalModel.cs" />
+    <Compile Include="Models\Navigation.cs" />
+    <Compile Include="Models\Payer.cs" />
+    <Compile Include="Models\PAYPAD_ERROR_CONSOLE.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\ValueModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CommonResource.resx" />
+    <EmbeddedResource Include="Resources\ConstantsResource.resx" />
+    <EmbeddedResource Include="Resources\MessageResource.resx" />
+    <None Include="DataContext\DB_Local.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\BetPlay\Publish\" />
+    <Folder Include="Images\SuperChance\Loterias\" />
+    <Folder Include="Images\SuperChance\Publishes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Backgrounds\Background.png" />
+    <Resource Include="Images\BetPlay\Backgrounds\BackgroundGris.png" />
+    <Resource Include="Images\BetPlay\Backgrounds\BgPeq.png" />
+    <Resource Include="Images\BetPlay\Backgrounds\Borde.png" />
+    <Resource Include="Images\BetPlay\Backgrounds\Fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Buttons\btnCancelar.png" />
+    <Resource Include="Images\BetPlay\Buttons\btnContinuar.png" />
+    <Resource Include="Images\BetPlay\Buttons\BtnJugar.png" />
+    <Resource Include="Images\BetPlay\Buttons\BtnRecargar.png" />
+    <Resource Include="Images\BetPlay\Buttons\IcoStar.png" />
+    <Resource Include="Images\BetPlay\Buttons\IcoStarS.png" />
+    <Resource Include="Images\BetPlay\Buttons\ImgCalificacion.png" />
+    <Resource Include="Images\BetPlay\Buttons\ImgSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Keyboard\0.png" />
+    <Resource Include="Images\BetPlay\Keyboard\1.png" />
+    <Resource Include="Images\BetPlay\Keyboard\2.png" />
+    <Resource Include="Images\BetPlay\Keyboard\3.png" />
+    <Resource Include="Images\BetPlay\Keyboard\4.png" />
+    <Resource Include="Images\BetPlay\Keyboard\5.png" />
+    <Resource Include="Images\BetPlay\Keyboard\6.png" />
+    <Resource Include="Images\BetPlay\Keyboard\7.png" />
+    <Resource Include="Images\BetPlay\Keyboard\8.png" />
+    <Resource Include="Images\BetPlay\Keyboard\9.png" />
+    <Resource Include="Images\BetPlay\Keyboard\all.png" />
+    <Resource Include="Images\BetPlay\Keyboard\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Others\BtnRecarga.png" />
+    <Resource Include="Images\BetPlay\Others\iconoCC.png" />
+    <Resource Include="Images\BetPlay\Others\IconoPesos.png" />
+    <Resource Include="Images\BetPlay\Others\IconoValor.png" />
+    <Resource Include="Images\BetPlay\Others\LogoBet.png" />
+    <Resource Include="Images\BetPlay\Others\LogoChance.png" />
+    <Resource Include="Images\BetPlay\Others\LogoEcity.png" />
+    <Resource Include="Images\BetPlay\Others\LogoGana.png" />
+    <Resource Include="Images\BetPlay\Others\TxtApuesta.png" />
+    <Resource Include="Images\BetPlay\Others\TxtCalifica.png" />
+    <Resource Include="Images\BetPlay\Others\TxtCC.png" />
+    <Resource Include="Images\BetPlay\Others\TxtCedula.png" />
+    <Resource Include="Images\BetPlay\Others\TxtGracias.png" />
+    <Resource Include="Images\BetPlay\Others\TxtInfo1.png" />
+    <Resource Include="Images\BetPlay\Others\TxtInfo2.png" />
+    <Resource Include="Images\BetPlay\Others\TxtInfo3.png" />
+    <Resource Include="Images\BetPlay\Others\TxtInfo4.png" />
+    <Resource Include="Images\BetPlay\Others\TxtInfoF.png" />
+    <Resource Include="Images\BetPlay\Others\txtProx.png" />
+    <Resource Include="Images\BetPlay\Others\txtResumen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Others\TxtRecarga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Others\txtNumero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Others\TxtIngrese.png" />
+    <Resource Include="Images\BetPlay\Others\TxtTotal.png" />
+    <Resource Include="Images\BetPlay\Others\TxtValorFaltante.png" />
+    <Resource Include="Images\BetPlay\Others\TxtValorIngresado.png" />
+    <Resource Include="Images\BetPlay\Others\TxtValorSobrante.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Backgrounds\BgGrisG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Others\txtMonto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgSuperChance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\FondoGP1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\fondoP1.png" />
+    <Resource Include="Images\SuperChance\Background\FondoP2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\txtApuesta.png" />
+    <Resource Include="Images\SuperChance\Other\TxtDiviertete.png" />
+    <Resource Include="Images\SuperChance\Other\txtHasta.png" />
+    <Resource Include="Images\SuperChance\Other\TxtRecomendado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\btnAceptar.png" />
+    <Resource Include="Images\SuperChance\Button\BtnCancelar.png" />
+    <Resource Include="Images\SuperChance\Button\btnOk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\btnJugar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\icoCel.png" />
+    <Resource Include="Images\SuperChance\Other\IcoCheck.png" />
+    <Resource Include="Images\SuperChance\Other\IcoEmail.png" />
+    <Resource Include="Images\SuperChance\Other\IcoUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\txt1.png" />
+    <Resource Include="Images\SuperChance\Other\TxtAcepto.png" />
+    <Resource Include="Images\SuperChance\Other\TxtCel.png" />
+    <Resource Include="Images\SuperChance\Other\TxtCorreo.png" />
+    <Resource Include="Images\SuperChance\Other\TxtDiligencia.png" />
+    <Resource Include="Images\SuperChance\Other\TxtFechaN.png" />
+    <Resource Include="Images\SuperChance\Other\TxtNo.png" />
+    <Resource Include="Images\SuperChance\Other\TxtNombre.png" />
+    <Resource Include="Images\SuperChance\Other\TxtNumeroCC.png" />
+    <Resource Include="Images\SuperChance\Other\TxtObligatorios.png" />
+    <Resource Include="Images\SuperChance\Other\txtPoliticas.png" />
+    <Resource Include="Images\SuperChance\Other\txtTipoDocumento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\ico2.png" />
+    <Resource Include="Images\SuperChance\Other\ico3.png" />
+    <Resource Include="Images\SuperChance\Other\txtApuesta1.png" />
+    <Resource Include="Images\SuperChance\Other\TxtAsiVa.png" />
+    <Resource Include="Images\SuperChance\Other\TxtDia.png" />
+    <Resource Include="Images\SuperChance\Other\TxtEligeL.png" />
+    <Resource Include="Images\SuperChance\Other\TxtEscogeF.png" />
+    <Resource Include="Images\SuperChance\Other\txtHoy.png" />
+    <Resource Include="Images\SuperChance\Other\txtMes.png" />
+    <Resource Include="Images\SuperChance\Other\txtPodrias.png" />
+    <Resource Include="Images\SuperChance\Other\txtValorPagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgDatos.png" />
+    <Resource Include="Images\SuperChance\Background\BgDia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgGris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\txtAleatorio.png" />
+    <Resource Include="Images\SuperChance\Other\txtAntioquenita.png" />
+    <Resource Include="Images\SuperChance\Other\txtBogota.png" />
+    <Resource Include="Images\SuperChance\Other\txtBuscarLoteria.png" />
+    <Resource Include="Images\SuperChance\Other\TxtCafeteritoNoche.png" />
+    <Resource Include="Images\SuperChance\Other\txtCafeteritoTarde.png" />
+    <Resource Include="Images\SuperChance\Other\txtChontico.png" />
+    <Resource Include="Images\SuperChance\Other\txtDorado.png" />
+    <Resource Include="Images\SuperChance\Other\txtEligeLoterias.png" />
+    <Resource Include="Images\SuperChance\Other\txtInfoAle.png" />
+    <Resource Include="Images\SuperChance\Other\txtMaximo.png" />
+    <Resource Include="Images\SuperChance\Other\txtOro.png" />
+    <Resource Include="Images\SuperChance\Other\txtPaisita1.png" />
+    <Resource Include="Images\SuperChance\Other\txtpaisita2.png" />
+    <Resource Include="Images\SuperChance\Other\txtPick3.png" />
+    <Resource Include="Images\SuperChance\Other\txtPick4.png" />
+    <Resource Include="Images\SuperChance\Other\txtQuindio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgLoteria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\btnConfirmaApuesta.png" />
+    <Resource Include="Images\SuperChance\Button\BtnNuevaApuesta.png" />
+    <Resource Include="Images\SuperChance\Button\BtnNumeroAdi.png" />
+    <Resource Include="Images\SuperChance\Button\BtnNumeroAle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgNumero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\ico4.png" />
+    <Resource Include="Images\SuperChance\Other\Txt3Cifras.png" />
+    <Resource Include="Images\SuperChance\Other\txtCombinado.png" />
+    <Resource Include="Images\SuperChance\Other\txtDerecho.png" />
+    <Resource Include="Images\SuperChance\Other\txtDigitaNumero.png" />
+    <Resource Include="Images\SuperChance\Other\TxtPuedesApostar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\btnCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\IcoPesos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\ico5.png" />
+    <Resource Include="Images\SuperChance\Other\IcoEliminar.png" />
+    <Resource Include="Images\SuperChance\Other\IcoX.png" />
+    <Resource Include="Images\SuperChance\Other\txtPuedesaApostarP7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\BtnEliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\txtMovimiento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\BtnCambiarL.png" />
+    <Resource Include="Images\SuperChance\Button\BtnMismaL.png" />
+    <Resource Include="Images\SuperChance\Button\btnX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\Ico+.png" />
+    <Resource Include="Images\SuperChance\Other\txtGenial.png" />
+    <Resource Include="Images\SuperChance\Other\txtQuieres.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\txtIva.png" />
+    <Resource Include="Images\SuperChance\Other\txtResumen.png" />
+    <Resource Include="Images\SuperChance\Other\TxtSubT.png" />
+    <Resource Include="Images\SuperChance\Other\TxtTotal.png" />
+    <Resource Include="Images\SuperChance\Other\txtValorTotalPagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\BtnCancelarA.png" />
+    <Resource Include="Images\SuperChance\Button\BtnNueva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\bgP12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\IcoImpresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\TxtImprimiendo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Others\logo_gana_gris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\txtAcumula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BetPlay\Gif\Load.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\CampoCedula.png" />
+    <Resource Include="Images\SuperChance\Other\CampoImagen.png" />
+    <Resource Include="Images\SuperChance\Other\ImgCampoCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Button\BtnAgregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\CampoBuscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\icoLupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgLoterias.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgP6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\txtApuesta2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\ImgCampo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BGp13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgNumApuestas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\borrador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\daySelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Background\BgGrande2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Logos\ANTIOQUEÑITA 1.png" />
+    <Resource Include="Images\SuperChance\Logos\ANTIOQUEÑITA 2.png" />
+    <Resource Include="Images\SuperChance\Logos\ASTRO LUNA.png" />
+    <Resource Include="Images\SuperChance\Logos\ASTRO SOL.png" />
+    <Resource Include="Images\SuperChance\Logos\BOGOTÁ.png" />
+    <Resource Include="Images\SuperChance\Logos\CAFETERINO NOCHE.png" />
+    <Resource Include="Images\SuperChance\Logos\CAFETERITO TARDE.png" />
+    <Resource Include="Images\SuperChance\Logos\CAUCA.png" />
+    <Resource Include="Images\SuperChance\Logos\CHONTICO DÍA.png" />
+    <Resource Include="Images\SuperChance\Logos\CHONTICO NOCHE.png" />
+    <Resource Include="Images\SuperChance\Logos\CUNDINAMARCA.png" />
+    <Resource Include="Images\SuperChance\Logos\EL DORADO MAÑANA.png" />
+    <Resource Include="Images\SuperChance\Logos\EL DORADO NOCHE.png" />
+    <Resource Include="Images\SuperChance\Logos\EL DORADO TARDE.png" />
+    <Resource Include="Images\SuperChance\Logos\EL PIJAO DE ORO.png" />
+    <Resource Include="Images\SuperChance\Logos\HUILA.png" />
+    <Resource Include="Images\SuperChance\Logos\MEDELLIN.png" />
+    <Resource Include="Images\SuperChance\Logos\META.png" />
+    <Resource Include="Images\SuperChance\Logos\PAISITA 1.png" />
+    <Resource Include="Images\SuperChance\Logos\PAISITA 2.png" />
+    <Resource Include="Images\SuperChance\Logos\PAISITA 3.png" />
+    <Resource Include="Images\SuperChance\Logos\PICK 3 DIA.png" />
+    <Resource Include="Images\SuperChance\Logos\PICK 3 NOCHE.png" />
+    <Resource Include="Images\SuperChance\Logos\PICK 3.png" />
+    <Resource Include="Images\SuperChance\Logos\PICK 4 .png" />
+    <Resource Include="Images\SuperChance\Logos\PICK 4 DIA.png" />
+    <Resource Include="Images\SuperChance\Logos\PICK 4 NOCHE.png" />
+    <Resource Include="Images\SuperChance\Logos\QUINDIO.png" />
+    <Resource Include="Images\SuperChance\Logos\RISARALDA.png" />
+    <Resource Include="Images\SuperChance\Logos\SANTANDER.png" />
+    <Resource Include="Images\SuperChance\Logos\TOLIMA.png" />
+    <Resource Include="Images\SuperChance\Logos\VALLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SuperChance\Other\fechaS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\Logos.png" />
+    <Resource Include="Images\Recargas\TxtRecargaCel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\BtnCancelar.png" />
+    <Resource Include="Images\Recargas\BtnClaro.png" />
+    <Resource Include="Images\Recargas\BtnContinuar.png" />
+    <Resource Include="Images\Recargas\BtnETB.png" />
+    <Resource Include="Images\Recargas\BtnFlash.png" />
+    <Resource Include="Images\Recargas\BtnMovilExito.png" />
+    <Resource Include="Images\Recargas\BtnMovistar.png" />
+    <Resource Include="Images\Recargas\BtnTigo.png" />
+    <Resource Include="Images\Recargas\BtnVirgin.png" />
+    <Resource Include="Images\Recargas\BtnWOM.png" />
+    <Resource Include="Images\Recargas\IcoAlert.png" />
+    <Resource Include="Images\Recargas\TxtAdvertencia.png" />
+    <Resource Include="Images\Recargas\TxtElige.png" />
+    <Resource Include="Images\Recargas\TxtRYP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\Logos2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\BgCampo.png" />
+    <Resource Include="Images\Recargas\bgOption.png" />
+    <Resource Include="Images\Recargas\IcoFlecha.png" />
+    <Resource Include="Images\Recargas\txtEligeCompra.png" />
+    <Resource Include="Images\Recargas\txtPaquetes.png" />
+    <Resource Include="Images\Recargas\txtRecargas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\bgRecargar.png" />
+    <Resource Include="Images\Recargas\icoPesos.png" />
+    <Resource Include="Images\Recargas\txtIngresa.png" />
+    <Resource Include="Images\Recargas\txtMontos.png" />
+    <Resource Include="Images\Recargas\TxtValorRecargas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\ImgLinea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\txtConfimarnumero.png" />
+    <Resource Include="Images\Recargas\txtIngresa2.png" />
+    <Resource Include="Images\Recargas\txtNumero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\bgData.png" />
+    <Resource Include="Images\Recargas\txtCelular.png" />
+    <Resource Include="Images\Recargas\txtConfirmaC.png" />
+    <Resource Include="Images\Recargas\txtValor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\IcoOk.png" />
+    <Resource Include="Images\Recargas\TxtExitoso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\txtContinua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\txtSeleccioneP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recargas\BtnComprar.png" />
+    <Resource Include="Images\Recargas\BtnRecargar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.UI.Xaml.2.7.1\build\Microsoft.UI.Xaml.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.UI.Xaml.2.7.1\build\Microsoft.UI.Xaml.props'))" />
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x64.103.0.9\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.103.0.9\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.103.0.9\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.103.0.9\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.0\build\Accord.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.103.0.90\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
+</Project>

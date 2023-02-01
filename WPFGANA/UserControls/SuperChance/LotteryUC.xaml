@@ -1,0 +1,194 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.SuperChance.LotteryUC"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WPFGANA.UserControls"
+       mc:Ignorable="d" 
+       Height="1920" 
+       Width="1080">
+
+    <UserControl.Resources>
+        <Style x:Key="DesignView"
+               TargetType="ListViewItem"
+               >
+            <EventSetter Event="TouchDown"
+             Handler="Btn_SelectLotterie"
+                                         />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="StyleBorder">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="StyleBorder" 
+                                        Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+
+        <Grid
+                Grid.Row="0">
+
+            <Image Source="/Images/BetPlay/Others/LogoGana.png" 
+                   Margin="304,62,300,326"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <Image Source="/Images/SuperChance/Other/TxtDiviertete.png" 
+                   Margin="0,280,0,0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Height="117" Width="898"/>
+
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            >
+
+            <Image Source="/Images/SuperChance/Background/BgLoterias.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="882" Height="1167" Margin="0,34,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/ico3.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="72" Height="72" Margin="178,75,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/txtEligeLoterias.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="518" Height="42" Margin="254,91,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/txtMaximo.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="680" Height="43" Margin="0,181,0,0"/>
+
+            <Image Source="/Images/SuperChance/Other/CampoBuscar.png"
+                   HorizontalAlignment="Left"
+                   Visibility="Hidden"
+                   VerticalAlignment="Top" Width="612" Height="63" Margin="224,371,0,0"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoChance.png" 
+                   Margin="426,-34,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="94" Width="242"/>
+
+            <TextBox HorizontalAlignment="Center"
+                     Margin="0,387,0,0"
+                     TextWrapping="Wrap"
+                     Visibility="Hidden"
+                     VerticalAlignment="Top"
+                     Width="524"
+                     x:Name="TxtBuscar"
+                     TouchDown="Btn_TxtBuscarTouchDown"
+                     Height="34"
+                     FontSize="25" 
+                     Background="{x:Null}" 
+                     Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+
+            <Image Source="/Images/BetPlay/Buttons/btnCancelar.png" 
+                   Margin="290,1166,0,0"
+                   HorizontalAlignment="Left"
+                   TouchDown="Btn_CancelarTouchDown"
+                   x:Name="BtnCancelar"
+                   VerticalAlignment="Top" Height="78" Width="172"/>
+
+            <Image Source="/Images/BetPlay/Buttons/btnContinuar.png" 
+                   Margin="611,1166,0,0"
+                   TouchDown="Btn_ContinuarTouchDown"
+                   x:Name="BtnAceptar"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="78" Width="172"/>
+
+
+
+            <materialDesign:TransitioningContent  
+                OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplier 0:0:1.2}" 
+                Name="btnMapSeats" Margin="213,289,211,128" RenderTransformOrigin="0.507,0.5">
+                <materialDesign:TransitioningContent.OpeningEffects>
+                    <materialDesign:TransitionEffect Kind="SlideInFromBottom"  Duration="0:0:1.9"/>
+                </materialDesign:TransitioningContent.OpeningEffects>
+
+                <ListView 
+                    x:Name="lvLotteries"
+                    ItemContainerStyle="{DynamicResource DesignView}"
+                    
+                    ItemsSource="{Binding}"            
+                    SelectionMode="Multiple" Width="656" Background="{x:Null}" Margin="5,10,-5,0">
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="3"
+                                  VerticalAlignment="Top"
+                                 HorizontalAlignment="Center"/>
+
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid 
+                                       
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,10,10,0"
+                                 x:Name="LotterieSelected"
+                                Width="150"
+                                Height="125">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="125" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0"                      
+                                        x:Name="LotteriesSelected"
+                                      >
+
+                                    <Grid.Background>
+
+                                        <ImageBrush 
+                                            ImageSource="{Binding ImageData}"                                            
+                                            Stretch="Fill"                                      
+                                            />
+                                    </Grid.Background>
+
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </materialDesign:TransitioningContent>
+
+        </Grid>
+
+        <Grid
+                Grid.Row="2">
+
+            <Image Source="/Images/BetPlay/Others/LogoEcity.png" 
+                   Margin="932,337,20,20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="128" Height="43"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

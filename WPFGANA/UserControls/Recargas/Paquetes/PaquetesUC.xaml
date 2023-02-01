@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.Recargas.Paquetes.PaquetesUC"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFGANA.UserControls.Recargas.Paquetes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="1920" d:DesignWidth="1080"
+     >
+
+    <UserControl.Resources>
+        <Style x:Key="DesignView"
+               TargetType="ListViewItem"
+               >
+            <EventSetter Event="TouchDown"
+             Handler="Btn_SelectPacket"
+                                         />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="StyleBorder">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="StyleBorder" 
+                                        Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Image Source="/Images/BetPlay/Others/LogoGana.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="120" Width="332" Margin="383,98,0,0"/>
+
+        <Image Source="/Images/Recargas/bgData.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Height="1098" Width="866" Margin="0,420,0,0"/>
+
+        <Image Source="/Images/Recargas/txtPaquetes.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="430" Height="55" Margin="0,521,0,0"/>
+
+        <Image Source="/Images/Recargas/txtSeleccioneP.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="430" Height="55" Margin="343,641,0,0"/>
+
+        <Image Source="/Images/Recargas/ImgLinea.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="734" Height="17" Margin="0,595,0,0"/>
+
+        <materialDesign:TransitioningContent  
+                OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplier 0:0:1.2}" 
+                Name="btnMapSeats" Margin="213,770,211,445" RenderTransformOrigin="0.507,0.5">
+            <materialDesign:TransitioningContent.OpeningEffects>
+                <materialDesign:TransitionEffect Kind="SlideInFromBottom"  Duration="0:0:1.9"/>
+            </materialDesign:TransitioningContent.OpeningEffects>
+
+            <ListView 
+                    x:Name="lvPackets"
+                    ItemContainerStyle="{DynamicResource DesignView}"                   
+                    ItemsSource="{Binding}"            
+                    SelectionMode="Single"
+                    Width="656" 
+                    Background="{x:Null}"
+                    Margin="10,0,-10,10">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"
+                                  VerticalAlignment="Top"
+                                 HorizontalAlignment="Center"/>
+
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
+                                       
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,30,10,0"
+                                 x:Name="PackSelected"
+                                 Background="Gray"
+                                Width="150"
+                                Height="200">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="125" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0"                      
+                                        x:Name="PacketSelected"
+                                 
+                                      >
+
+                                <TextBlock 
+                                    Text="{Binding desPaquete}"
+                                    FontSize="20"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,0,0,0"
+                                    Foreground="White"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Center"
+                                    Grid.Column="0"
+                                />
+
+                                <TextBlock 
+                                    Text="{Binding valorComercial}"
+                                    FontSize="20"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,50,0,0"
+                                    Foreground="White"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Grid.Column="0"
+                                />
+                     
+
+                                <TextBlock 
+                                    Text="{Binding DesOperator}"
+                                    FontSize="20"
+                                    Foreground="White"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,60,0,0"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Center"
+                                    Grid.Column="0"
+                                />
+
+
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </materialDesign:TransitioningContent>
+
+        <Image Source="/Images/Recargas/BtnCancelar.png"
+                   HorizontalAlignment="Left"
+               x:Name="BtnCancelar"
+               TouchDown="BtnCancelar_TouchDown"
+                   VerticalAlignment="Top" Width="256" Height="75" Margin="419,1461,0,0"/>
+
+        <Image Source="/Images/BetPlay/Others/LogoEcity.png" 
+                   Margin="893,1819,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Width="152" Height="58"/>
+
+    </Grid>
+</UserControl>

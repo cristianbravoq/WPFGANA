@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.SuperChance.FinishChance"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WPFGANA.UserControls"
+       mc:Ignorable="d" 
+       Height="1920" 
+       Width="1080">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="400" />
+        </Grid.RowDefinitions>
+
+        <Grid
+                Grid.Row="0">
+
+            <Image Source="/Images/BetPlay/Others/LogoGana.png" 
+                   Margin="376,198,412,190"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Image Source="/Images/BetPlay/Backgrounds/Fondo.png" 
+                   Margin="248,175,265,146"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="699" Width="567"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoChance.png" 
+                   Margin="411,81,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="94" Width="242"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtGracias.png" 
+                   Margin="392,530,406,424"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="66" Width="282"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtInfoF.png" 
+                   Margin="342,678,372,194"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="148" Width="366"/>
+
+            <Image Source="/Images/SuperChance/Button/btnAceptar.png" 
+                   Margin="350,750,364,18"
+                   HorizontalAlignment="Center"
+                   Name="aceptar"
+                   Visibility="Hidden"
+                   TouchDown="Btn_salirTouchDown"
+                   VerticalAlignment="Center" Height="70" Width="366"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtCalifica.png" 
+                   Margin="350,484,364,491"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="45" Width="366"/>
+
+            <Image Source="/Images/BetPlay/Buttons/ImgSelect.png" 
+                   Margin="472,212,490,706"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="102" Width="118"/>
+
+            <Image Source="/Images/BetPlay/Buttons/IcoStar.png" 
+                   Margin="350,336,658,617"
+                   x:Name="Star1"
+                   Tag="1"
+                   TouchDown="Btn_Calificacion"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+
+            <Image Source="/Images/BetPlay/Buttons/IcoStar.png" 
+                   Margin="427,336,581,617"
+                   x:Name="Star2"
+                   Tag="2"
+                   TouchDown="Btn_Calificacion"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+
+            <Image Source="/Images/BetPlay/Buttons/IcoStar.png" 
+                   Margin="504,336,504,617"
+                   x:Name="Star3"
+                   Tag="3"
+                   TouchDown="Btn_Calificacion"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+            <Image Source="/Images/BetPlay/Buttons/IcoStar.png" 
+                   x:Name="Star5"
+                   Margin="658,336,350,617"
+                   Tag="5"
+                   TouchDown="Btn_Calificacion"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+            <Image Source="/Images/BetPlay/Buttons/IcoStar.png" 
+                   Margin="581,336,427,617"
+                   x:Name="Star4"
+                   Tag="4"
+                    TouchDown="Btn_Calificacion"
+
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+
+            <Image Source="/Images/BetPlay/Buttons/IcoStarS.png" 
+                   Margin="350,336,658,617"
+                   x:Name="StarS1"
+                   Tag="1"
+                    TouchDown="Btn_Calificacion"
+                   Visibility="Hidden"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+
+            <Image Source="/Images/BetPlay/Buttons/IcoStarS.png" 
+                   Margin="427,336,581,617"
+                   x:Name="StarS2"
+                   Tag="2"
+                   Visibility="Hidden"
+                    TouchDown="Btn_Calificacion"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+
+            <Image Source="/Images/BetPlay/Buttons/IcoStarS.png" 
+                   Margin="504,336,504,617"
+                   x:Name="StarS3"
+                   Visibility="Hidden"
+                    TouchDown="Btn_Calificacion"
+                   Tag="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+            <Image Source="/Images/BetPlay/Buttons/IcoStarS.png" 
+                   Margin="658,336,350,617"
+                   x:Name="StarS5"
+                   Visibility="Hidden"
+                   Tag="5"
+                    TouchDown="Btn_Calificacion"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+            <Image Source="/Images/BetPlay/Buttons/IcoStarS.png" 
+                   Margin="581,336,427,617"
+                   x:Name="StarS4"
+                   Visibility="Hidden"
+                   Tag="4"
+                   HorizontalAlignment="Center"
+                    TouchDown="Btn_Calificacion"
+                   VerticalAlignment="Center" Height="67" Width="72"/>
+
+        </Grid>
+
+        <Grid
+                Grid.Row="2">
+
+            <Image Source="/Images/BetPlay/Others/LogoEcity.png" 
+                   Margin="932,337,20,20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="128" Height="43"/>
+
+        </Grid>
+
+
+
+
+    </Grid>
+</UserControl>

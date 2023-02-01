@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.BetPlay.RechargeUC"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WPFGANA.UserControls"
+       mc:Ignorable="d" 
+       Height="1920" 
+       Width="1080">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="400" />
+        </Grid.RowDefinitions>
+
+        <Grid
+                Grid.Row="0">
+
+            <Image Source="/Images/BetPlay/Others/LogoGana.png" 
+                   Margin="304,62,300,326"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtInfo1.png" 
+                   Margin="304,263,300,130"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10,5,-10,395" Grid.RowSpan="2">
+
+            <Image Source="/Images/BetPlay/Backgrounds/BackgroundGris.png" 
+                   Margin="260,0,252,-43"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="1063" Width="568"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoBet.png" 
+                   Margin="414,48,394,872"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="100" Width="272"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtRecarga.png" 
+                   Margin="315,197,394,786"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="37" Width="371"/>
+
+            <Image Source="/Images/BetPlay/keyboard/0.png" 
+                   Margin="496,797,493,144"
+                   Tag="0"
+                   TouchDown="Keyboard_TouchDown"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/1.png" 
+                   Margin="356,687,633,254"
+                   HorizontalAlignment="Center"
+                   Tag="1"
+                    TouchDown="Keyboard_TouchDown"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/2.png" 
+                   Margin="496,687,493,254"
+                   HorizontalAlignment="Center"
+                   Tag="2"
+                    TouchDown="Keyboard_TouchDown"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/3.png" 
+                   Margin="629,687,360,254"
+                   HorizontalAlignment="Center"
+                   Tag="3"
+                    TouchDown="Keyboard_TouchDown"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/4.png" 
+                   Margin="356,575,633,366"
+                   HorizontalAlignment="Center"
+                   Tag="4"
+                    TouchDown="Keyboard_TouchDown"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/5.png" 
+                   Margin="496,575,493,366"
+                   Tag="5"
+                    TouchDown="Keyboard_TouchDown"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/6.png" 
+                   Margin="629,575,360,366"
+                   Tag="6"
+                    TouchDown="Keyboard_TouchDown"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/7.png" 
+                   Margin="356,459,633,482"
+                   Tag="7"
+                    TouchDown="Keyboard_TouchDown"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/8.png" 
+                   Margin="496,459,493,482"
+                   HorizontalAlignment="Center"
+                   Tag="8"
+                    TouchDown="Keyboard_TouchDown"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/9.png" 
+                   Margin="629,459,360,482"
+                   HorizontalAlignment="Center"
+                   Tag="9"
+                    TouchDown="Keyboard_TouchDown"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/Borrar.png" 
+                   Margin="356,797,633,144"
+                   HorizontalAlignment="Center"
+                    Tag="Borrar"
+                   TouchDown="Btn_DeleteTouchDown"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/keyboard/All.png" 
+                   Margin="629,797,360,144"
+                    TouchDown="Btn_DeleteAllTouchDown"
+                   Tag="All"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="79" Width="91"/>
+
+            <Image Source="/Images/BetPlay/Buttons/btnCancelar.png" 
+                   Margin="338,904,570,38"
+                   TouchDown="Btn_CancelarTouchDown"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="78" Width="172"/>
+
+            <Image Source="/Images/BetPlay/Buttons/btnContinuar.png" 
+                   Margin="594,904,314,38"
+                   TouchDown="Btn_ContinuarTouchDown"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="78" Width="172"/>
+
+            <TextBox x:Name="TxtMonto"
+                    HorizontalAlignment="Left" 
+                     Height="36" 
+                     Text="{Binding Val,StringFormat={}{0:C0},UpdateSourceTrigger=PropertyChanged}"
+                     Margin="315,256,0,0" 
+                     TextWrapping="Wrap"
+                     TextChanged="txtVal_TextChanged"
+                     VerticalAlignment="Top"
+                     Width="451" FontSize="25" FontFamily="Tahoma"/>
+
+        </Grid>
+
+        <Grid
+                Grid.Row="2">
+
+            <Image Source="/Images/BetPlay/Others/IconoPesos.png" 
+                   Margin="432,43,483,196"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="161" Width="165"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtInfo4.png" 
+                   Margin="275,209,309,84"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="496" Height="107"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoEcity.png" 
+                   Margin="932,337,20,20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="128" Height="43"/>
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

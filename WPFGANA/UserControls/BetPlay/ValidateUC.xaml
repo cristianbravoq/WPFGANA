@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="WPFGANA.UserControls.BetPlay.ValidateUC"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WPFGANA.UserControls"
+       mc:Ignorable="d" 
+       Height="1920" 
+       Width="1080">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/BetPlay/Backgrounds/Background.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="400" />
+        </Grid.RowDefinitions>
+
+        <Grid
+                Grid.Row="0">
+
+            <Image Source="/Images/BetPlay/Others/LogoGana.png" 
+                   Margin="304,62,300,326"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtInfo1.png" 
+                   Margin="304,263,300,130"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Image Source="/Images/BetPlay/Backgrounds/BgPeq.png" 
+                   Margin="252,228,260,309"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="483" Width="568"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoBet.png" 
+                   Margin="406,192,402,728"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="100" Width="272"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtResumen.png" 
+                   Margin="406,321,402,672"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="27" Width="272"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtNumero.png" 
+                   Margin="286,381,522,612"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="27" Width="272"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtMonto.png" 
+                   Margin="286,483,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Height="27" Width="272"/>
+
+
+            <TextBox x:Name="TxtCedula"
+                    HorizontalAlignment="Left" 
+                     Height="36" 
+                     Margin="286,428,0,0" 
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="451" FontSize="25" FontFamily="Tahoma"/>
+
+            <TextBox x:Name="TxtMonto"
+                    HorizontalAlignment="Left" 
+                     Height="36" 
+                     Margin="286,530,0,0" 
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="451" FontSize="25" FontFamily="Tahoma"/>
+
+            <Image Source="/Images/BetPlay/Buttons/btnCancelar.png" 
+                   Margin="338,633,570,309"
+                   HorizontalAlignment="Center"
+                   TouchDown="Btn_CancelarTouchDown"
+                   VerticalAlignment="Center" Height="78" Width="172"/>
+
+            <Image Source="/Images/BetPlay/Buttons/btnContinuar.png" 
+                   Margin="565,633,343,309"
+                   TouchDown="Btn_ContinuarTouchDown"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="78" Width="172"/>
+
+        </Grid>
+
+        <Grid
+                Grid.Row="2">
+
+            <Image Source="/Images/BetPlay/Others/IconoPesos.png" 
+                   Margin="432,43,483,196"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="161" Width="165"/>
+
+            <Image Source="/Images/BetPlay/Others/TxtInfo4.png" 
+                   Margin="275,209,309,84"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="496" Height="107"/>
+
+            <Image Source="/Images/BetPlay/Others/LogoEcity.png" 
+                   Margin="932,337,20,20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="128" Height="43"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
